@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHP: Ampliando Conceptos</title>
+</head>
+<body>
+
+    <?php 
+    $miarchivo = fopen("archivo1.txt","r+");
+if($miarchivo == false){
+        echo "error al abrir el archivo1.txt";
+}
+
+$miarchivo2 = fopen("archivo3.txt","w");
+$miarchivo3 = fopen("archivo2.txt","w");
+
+    ?>
+
+</body>
+</html>

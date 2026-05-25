@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Sevilla: La Gincana Digital</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        
+        <header>
+            <h1>🗺️ Código Sevilla</h1>
+            <p class="subtitle">La Gincana Digital Ies lliçà - Poligono Sur</p>
+            <div id="progress">
+                <span>Progreso: </span>
+                <strong id="current-turn">1</strong> de 7
+            </div>
+        </header>
+
+        <main>
+            <div id="mapa-gincana" class="card"></div>
+
+            <section id="challenge-section" class="card">
+                <h2>¿Dónde estoy?</h2>
+                
+                <p id="clue-text" class="clue-box">
+                    Cargando pista... (Si ves esto, es que falta conectar el "cerebro" de JavaScript).
+                </p>
+                
+
+                <div class="interaction-group">
+                    <input type="text" id="user-input" placeholder="Escribe el nombre del lugar aquí..." autocomplete="off">
+                    <button id="btn-verify">Verificar lugar 🚀</button>
+                    <button id="btn-gps" onclick="checkGPS()" style="background-color: #2a7b4c; color: white;">📍 Comprobar mi ubicación actual</button>
+                </div>
+                
+                <p id="error-message" class="error hidden"></p>
+            </section>
+
+            <section id="reward-section" class="card hidden">
+                <div class="success-header">
+                    <h2>¡Excelente! ¡Has llegado al destino correcto! 📍</h2>
+                </div>
+                
+                <div class="reward-content">
+                    <div id="place-image" class="image-placeholder">
+                        <span>📷 [Aquí los alumnos pondrán la foto del monumento]</span>
+                    </div>
+                    
+                    <h3>¿Sabías que...?</h3>
+                    <p id="fact-text">Aquí se cargará la historia curiosa del lugar...</p>
+                </div>
+                
+                <button id="btn-next">Siguiente parada ➡️</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>Proyecto creado de forma cooperativa • Sevilla, 2026</p>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

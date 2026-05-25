@@ -1,0 +1,279 @@
+/* ==========================================================================
+   🎨 PALETA DE COLORES "SEVILLA" Y CONFIGURACIÓN VARIABLES
+   ========================================================================== */
+:root {
+    --color-albero: #e5b228;       /* Amarillo albero icónico */
+    --color-grana: #8b1c20;        /* Rojo grana majestuoso */
+    --color-grana-dark: #661013;   /* Rojo oscuro para efectos de hover */
+    --color-bg: #fcfaf7;           /* Fondo blanco roto muy suave */
+    --color-card-bg: #ffffff;      /* Fondo de las tarjetas */
+    --color-text: #2b2b2b;         /* Gris oscuro para lectura cómoda */
+    --color-text-light: #5f5f5f;   /* Gris secundario para subtítulos */
+    --color-success: #2a7b4c;      /* Verde para respuestas correctas */
+    --color-error: #c92a2a;        /* Rojo para mensajes de error */
+    --border-radius: 12px;         /* Esquinas redondeadas modernas */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.06); /* Sombra suave para relieve */
+}
+
+/* ==========================================================================
+   🌍 ESTILOS GENERALES
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   📦 CONTENEDOR PRINCIPAL DEL JUEGO
+   ========================================================================== */
+.game-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-top: 8px solid var(--color-grana); /* Detalle elegante en la parte superior */
+    padding: 30px;
+}
+
+/* ==========================================================================
+   📛 CABECERA (Header y Marcador de progreso)
+   ========================================================================== */
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f3eee3;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: var(--color-grana);
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+#progress {
+    background-color: #fdf8eb; /* Fondo albero muy rebajado */
+    border: 1px solid var(--color-albero);
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.95rem;
+    color: var(--color-grana);
+    font-weight: 500;
+}
+
+#progress strong {
+    font-size: 1.1rem;
+    color: var(--color-grana);
+}
+
+/* ==========================================================================
+   🎴 TARJETAS (Estructura de Desafío y Recompensa)
+   ========================================================================== */
+.card {
+    animation: aparecer 0.4s ease-in-out; /* Animación suave al cambiar de pantalla */
+}
+
+.card h2 {
+    color: var(--color-grana);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* 🔍 Caja de la pista enigmática */
+.clue-box {
+    background-color: #fdfcf9;
+    border-left: 5px solid var(--color-albero); /* Línea decorativa albero */
+    padding: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 25px;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    color: #3a3a3a;
+}
+
+/* ==========================================================================
+   ⌨️ ELEMENTOS DE FORMULARIO (Inputs y Botones)
+   ========================================================================== */
+.interaction-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+#user-input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#user-input:focus {
+    border-color: var(--color-albero); /* Al hacer clic se ilumina en albero */
+}
+
+/* Botones generales */
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Botón Verificar (Rojo Grana) */
+#btn-verify {
+    background-color: var(--color-grana);
+}
+
+#btn-verify:hover {
+    background-color: var(--color-grana-dark);
+}
+
+#btn-verify:active {
+    transform: scale(0.98); /* Efecto de pulsación */
+}
+
+/* Botón Siguiente Parada (Verde) */
+#btn-next {
+    background-color: var(--color-success);
+    margin-top: 15px;
+}
+
+#btn-next:hover {
+    background-color: #1e5c36;
+}
+
+/* ==========================================================================
+   ❌ ALERTAS Y MENSAJES DE ERROR
+   ========================================================================== */
+.error {
+    color: var(--color-error);
+    background-color: #fff5f5;
+    border: 1px solid #ffc9c9;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   🎉 SECCIÓN DE RECOMPENSA (Destino Encontrado)
+   ========================================================================== */
+.success-header h2 {
+    color: var(--color-success);
+}
+
+/* 📷 Contenedor adaptado para la fotografía */
+.image-placeholder {
+    width: 100%;
+    height: 240px;
+    background-color: #eaeaea;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text-light);
+    font-weight: 500;
+    border: 2px dashed #cccccc;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+/* Si los alumnos añaden una etiqueta <img> real dentro del contenedor */
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la foto llene el espacio sin deformarse */
+}
+
+.reward-content h3 {
+    margin: 15px 0 5px 0;
+    color: var(--color-grana);
+    font-size: 1.15rem;
+}
+
+#fact-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444444;
+}
+
+/* ==========================================================================
+   🐾 PIE DE PÁGINA Y UTILIDADES
+   ========================================================================== */
+footer {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    border-top: 1px solid #f3eee3;
+    padding-top: 15px;
+}
+
+/* 🔒 Clase crucial: JavaScript la usará para ocultar/mostrar secciones */
+.hidden {
+    display: none !important;
+}
+
+/* 🎬 Animación de entrada */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   📱 RESPONSIVE (Diseño Adaptable para PC / Tablets)
+   ========================================================================== */
+@media (min-width: 480px) {
+    .interaction-group {
+        flex-direction: row; /* En pantallas grandes, el input y el botón van de lado */
+    }
+    
+    #user-input {
+        flex: 2; /* El cuadro de texto ocupa más espacio */
+    }
+    
+    button {
+        flex: 1; /* El botón se encoge proporcionalmente */
+        width: auto;
+    }
+}
